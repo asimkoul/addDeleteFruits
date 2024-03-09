@@ -18,25 +18,12 @@ form.addEventListener("submit",function (event){
     const fruitToAdd= document.getElementById("fruit-to-add")
     // created an li
     const newLi= document.createElement("li")
-    const newLiText=document.createTextNode(fruitToAdd.value)
-    newLi.appendChild(newLiText)
-    newLi.className="fruit"
-    // del button
-    const delBtn=document.createElement("button")
-    const delBtnText=document.createTextNode("x")
-    delBtn.appendChild(delBtnText)
-    delBtn.className=("delete-btn")
-    newLi.appendChild(delBtn)
-    // edit button
-    const button = document.createElement("button")
-    const buttonText=document.createTextNode("Edit")
-    button.appendChild(buttonText);
-    button.setAttribute("class", "edit-btn");
-    newLi.appendChild(button)
-    // fruit added
+    newLi.innerHTML= fruitToAdd.value + '<button class="delete-btn">x</button>' + '<button class="edit-btn">Edit</button>'
     fruits.appendChild(newLi)
-    }
+}
+
 )
+//delete fruit
 fruits.addEventListener("click",function (event){
     if(event.target.classList.contains("delete-btn")){
         const fruitToDel=event.target.parentElement;
